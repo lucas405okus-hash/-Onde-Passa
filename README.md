@@ -4,7 +4,7 @@ Guia de transmissões oficiais de futebol, com agenda, busca e cadastro de canai
 
 ## Estado atual
 
-MVP estático publicado pelo GitHub Pages. A agenda é carregada sob demanda pela API [football-data.org](https://www.football-data.org/). A chave é inserida pelo usuário e fica armazenada apenas no navegador. A API de partidas **não fornece direitos de transmissão**: os canais devem ser confirmados e cadastrados manualmente no painel, com link oficial.
+MVP estático. A agenda é carregada sob demanda pela API [football-data.org](https://www.football-data.org/). A chave é inserida pelo usuário e fica armazenada apenas no navegador. A API de partidas **não fornece direitos de transmissão**: os canais devem ser confirmados e cadastrados manualmente no painel, com link oficial.
 
 ## Como usar
 
@@ -19,7 +19,7 @@ Os dados de transmissões ficam no armazenamento local do navegador. Use **Expor
 
 ## Publicação
 
-O workflow em `.github/workflows/pages.yml` publica o conteúdo de `main` no GitHub Pages. Em repositório privado, a disponibilidade do Pages depende do plano e das configurações da conta. Se o deploy não iniciar, habilite Pages em Settings → Pages e selecione GitHub Actions.
+O workflow em `.github/workflows/pages.yml` está configurado para publicar o conteúdo de `main` no GitHub Pages a cada push. Para ativar, confira em Settings → Pages se a fonte está definida como **GitHub Actions**. O endereço esperado é https://lucas405okus-hash.github.io/-Onde-Passa/; ele só estará disponível depois que o primeiro deploy terminar com sucesso.
 
 ## Limitações conhecidas do MVP
 
