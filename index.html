@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#07111f"><meta name="description" content="Descubra onde assistir aos jogos de futebol. Agenda, canais e plataformas oficiais.">
+<title>Onde Passa? — Guia de transmissões</title>
+<style>
+:root{color-scheme:dark;--bg:#07111f;--panel:#101e30;--panel2:#14263b;--line:#263a52;--muted:#9aacc1;--text:#f4f7fb;--green:#35d07f;--yellow:#ffd166;--red:#ff7777}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -15%,#173451 0,transparent 38%),var(--bg);color:var(--text);font:15px/1.5 Inter,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:#83c7ff}.wrap{max-width:1100px;margin:auto;padding:24px 18px 60px}
+header{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:30px}.brand{display:flex;align-items:center;gap:12px}.logo{width:44px;height:44px;border-radius:14px;background:linear-gradient(145deg,#35d07f,#087b59);display:grid;place-items:center;font-size:23px;box-shadow:0 8px 30px #0c9d6240}.brand h1{font-size:22px;line-height:1.1;margin:0}.brand p{margin:4px 0 0;color:var(--muted);font-size:12px}
+button,input,select{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;background:var(--green);color:#06170f;font-weight:750}button.secondary{background:#1c3047;color:var(--text);border:1px solid var(--line)}button.danger{background:#4a2029;color:#ffd9de;border:1px solid #71343e}button:disabled{opacity:.45;cursor:not-allowed}
+.hero{padding:25px;border:1px solid #29425c;border-radius:20px;background:linear-gradient(110deg,#142b42,#0d1b2c);margin-bottom:22px}.eyebrow{color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.13em;font-size:11px}.hero h2{font-size:clamp(25px,5vw,38px);line-height:1.1;margin:8px 0}.hero p{color:var(--muted);margin:8px 0 0;max-width:650px}
+.toolbar{display:grid;grid-template-columns:1fr 1.4fr 1fr auto;gap:10px;margin:18px 0}.field{display:flex;flex-direction:column;gap:5px}.field label{font-size:12px;color:var(--muted)}input,select{width:100%;background:#0b1827;border:1px solid var(--line);color:var(--text);padding:11px 12px;border-radius:10px;min-width:0}.section-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:24px 0 12px}.section-head h3{margin:0;font-size:18px}.muted{color:var(--muted)}.matches{display:grid;gap:11px}.match{display:grid;grid-template-columns:105px 1fr minmax(180px,250px);gap:16px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px}.time{font-size:19px;font-weight:850}.date-small{font-size:11px;color:var(--muted)}.teams{font-weight:800;font-size:16px}.comp{font-size:12px;color:var(--muted);margin-top:3px}.broadcast{border-left:1px solid var(--line);padding-left:16px}.channel{font-weight:800}.free{color:var(--green);font-size:12px}.paid{color:var(--yellow);font-size:12px}.unknown{color:var(--muted);font-size:12px}.broadcast a{display:inline-block;margin-top:5px;font-size:12px;text-decoration:none}.empty{padding:30px;text-align:center;border:1px dashed #38516c;border-radius:15px;color:var(--muted)}.notice{font-size:12px;color:var(--muted);margin-top:14px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}.tab{background:transparent;border:1px solid var(--line);color:var(--muted)}.tab.active{background:#173b31;color:#8af0b7;border-color:#27694c}
+dialog{width:min(600px,calc(100% - 24px));border:1px solid var(--line);border-radius:18px;background:#0e1b2b;color:var(--text);padding:22px;box-shadow:0 25px 90px #000a}dialog::backdrop{background:#000b}.modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modal-head h3{margin:0}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.form-grid .wide{grid-column:1/-1}.actions{display:flex;gap:8px;justify-content:flex-end;margin-top:18px}.hint{font-size:12px;color:var(--muted)}.status{font-size:12px;color:var(--green);min-height:18px}
+footer{border-top:1px solid var(--line);margin-top:35px;padding-top:18px;color:var(--muted);font-size:12px}
+@media(max-width:720px){.toolbar{grid-template-columns:1fr 1fr}.match{grid-template-columns:75px 1fr;gap:10px}.broadcast{grid-column:1/-1;border-left:0;border-top:1px solid var(--line);padding:10px 0 0}.time{font-size:17px}.form-grid{grid-template-columns:1fr}.form-grid .wide{grid-column:auto}header{align-items:flex-start}.wrap{padding:18px 13px 40px}}
+</style>
+</head>
+<body><main class="wrap">
+<header><div class="brand"><div class="logo">⚽</div><div><h1>Onde Passa?</h1><p>O guia para não perder nenhum jogo</p></div></div><button class="secondary" id="settingsBtn">⚙ Configurar</button></header>
+<section class="hero"><div class="eyebrow">Futebol • Brasil e mundo</div><h2>Seu jogo. Seu canal. Sem perder tempo.</h2><p>Consulte a agenda, descubra a transmissão oficial e acesse diretamente a plataforma que vai exibir a partida.</p></section>
+<div class="tabs" role="tablist"><button class="tab active" data-range="today">Hoje</button><button class="tab" data-range="tomorrow">Amanhã</button><button class="tab" data-range="week">Próximos 7 dias</button><button class="tab" data-range="all">Todos carregados</button></div>
+<section class="toolbar">
+<div class="field"><label for="dateFilter">Data</label><input id="dateFilter" type="date"></div>
+<div class="field"><label for="search">Buscar time ou competição</label><input id="search" placeholder="Ex.: Flamengo, Champions League"></div>
+<div class="field"><label for="competition">Competição</label><select id="competition"><option value="">Todas as competições</option></select></div>
+<button id="refreshBtn">↻ Atualizar jogos</button>
+</section>
+<div class="section-head"><h3 id="listTitle">Jogos de hoje</h3><span class="muted" id="count">0 jogos</span></div>
+<div class="matches" id="matches"><div class="empty">Carregue os jogos usando sua chave de API ou cadastre partidas no painel de configuração.</div></div>
+<p class="notice">As partidas vêm da API de futebol configurada por você. Os canais são cadastrados separadamente e só aparecem quando houver informação confirmada. Este site não transmite jogos.</p>
+<footer>Onde Passa? • Guia independente de transmissões oficiais. Horários exibidos no fuso local do navegador.</footer>
+</main>
+<dialog id="settings">
+<div class="modal-head"><h3>Configurações e painel</h3><button class="secondary" id="closeSettings">Fechar</button></div>
+<div class="field"><label for="apiToken">Chave API football-data.org (opcional)</label><input id="apiToken" type="password" placeholder="Cole sua chave X-Auth-Token"><div class="hint">Crie uma conta em football-data.org para obter uma chave. Ela fica salva somente neste navegador. O plano gratuito limita competições e chamadas.</div></div>
+<div class="actions"><button id="saveToken">Salvar chave</button><button class="secondary" id="loadApi">Buscar partidas</button></div><p class="status" id="apiStatus"></p>
+<hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+<h3>Cadastro de transmissão</h3><p class="hint">Associe canal/plataforma, tipo de acesso e link oficial a uma partida carregada. Os dados ficam salvos neste navegador.</p>
+<form id="broadcastForm">
+<div class="form-grid">
+<div class="field wide"><label for="matchSelect">Partida</label><select id="matchSelect" required></select></div>
+<div class="field"><label for="channel">Canal / plataforma</label><input id="channel" required placeholder="Ex.: CazéTV, ESPN, Max"></div>
+<div class="field"><label for="access">Acesso</label><select id="access"><option value="paid">Pago</option><option value="free">Gratuito</option></select></div>
+<div class="field wide"><label for="broadcastUrl">Link oficial</label><input id="broadcastUrl" type="url" placeholder="https://..." required></div>
+<div class="field wide"><label for="sourceNote">Observação / fonte (opcional)</label><input id="sourceNote" placeholder="Ex.: confirmado no site oficial da competição"></div>
+</div><div class="actions"><button type="submit">Salvar transmissão</button></div><p class="status" id="saveStatus"></p>
+</form>
+<hr style="border:0;border-top:1px solid var(--line);margin:20px 0">
+<div class="actions"><button class="secondary" id="exportData">Exportar dados</button><button class="danger" id="clearData">Apagar dados locais</button></div>
+</dialog>
+<script>
+const $=id=>document.getElementById(id);
+const state={matches:[],broadcasts:JSON.parse(localStorage.getItem('op_broadcasts')||'{}'),range:'today'};
+const todayISO=()=>{const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+const plusDays=(n)=>{const d=new Date();d.setDate(d.getDate()+n);return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')};
+$('dateFilter').value=todayISO();
+function esc(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function persist(){localStorage.setItem('op_broadcasts',JSON.stringify(state.broadcasts));}
+function dateLabel(s){return new Date(s+'T12:00:00').toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'});}
+function getBroadcast(m){return state.broadcasts[m.id]||null;}
+function filtered(){const q=$('search').value.trim().toLocaleLowerCase('pt-BR'),comp=$('competition').value,date=$('dateFilter').value;return state.matches.filter(m=>{const hay=(m.home+' '+m.away+' '+m.competition).toLocaleLowerCase('pt-BR');if(q&&!hay.includes(q))return false;if(comp&&m.competition!==comp)return false;if(state.range==='today'&&m.date!==todayISO())return false;if(state.range==='tomorrow'&&m.date!==plusDays(1))return false;if(state.range==='week'&&(m.date<todayISO()||m.date>plusDays(7)))return false;if(state.range==='all'&&date&&m.date!==date)return false;return true}).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));}
+function render(){const list=filtered();$('count').textContent=list.length+' jogo(s)';$('listTitle').textContent=({today:'Jogos de hoje',tomorrow:'Jogos de amanhã',week:'Próximos 7 dias',all:'Partidas carregadas'})[state.range];if(!list.length){$('matches').innerHTML='<div class="empty">Nenhuma partida encontrada neste período.<br><span class="hint">Configure a API ou carregue outra data.</span></div>';return;}
+$('matches').innerHTML=list.map(m=>{const b=getBroadcast(m);return '<article class="match"><div><div class="time">'+esc(m.time||'--:--')+'</div><div class="date-small">'+esc(dateLabel(m.date))+'</div></div><div><div class="teams">'+esc(m.home)+' <span class="muted">×</span> '+esc(m.away)+'</div><div class="comp">'+esc(m.competition)+'</div></div><div class="broadcast">'+(b?'<div class="channel">'+esc(b.channel)+'</div><div class="'+(b.access==='free'?'free':'paid')+'">'+(b.access==='free'?'GRATUITO':'PAGO')+'</div><a href="'+esc(b.url)+'" target="_blank" rel="noopener noreferrer">Abrir transmissão oficial ↗</a>':'<div class="unknown">Transmissão ainda não cadastrada</div>')+'</div></article>'}).join('');}
+function populate(){const comps=[...new Set(state.matches.map(m=>m.competition))].sort();$('competition').innerHTML='<option value="">Todas as competições</option>'+comps.map(c=>'<option>'+esc(c)+'</option>').join('');$('matchSelect').innerHTML=state.matches.map(m=>'<option value="'+esc(m.id)+'">'+esc(m.date+' '+m.time+' — '+m.home+' x '+m.away)+'</option>').join('');render();}
+function fromApi(x){const dt=new Date(x.utcDate);return {id:String(x.id),date:dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0'),time:dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}),home:x.homeTeam?.name||'A definir',away:x.awayTeam?.name||'A definir',competition:x.competition?.name||'Competição'};}
+async function loadApi(){const token=$('apiToken').value.trim()||localStorage.getItem('op_api_token');if(!token){$('apiStatus').textContent='Insira e salve sua chave primeiro.';return;}const from=state.range==='tomorrow'?plusDays(1):state.range==='week'?todayISO():$('dateFilter').value||todayISO();const to=state.range==='week'?plusDays(7):from;$('apiStatus').textContent='Consultando a API…';try{const res=await fetch('https://api.football-data.org/v4/matches?dateFrom='+from+'&dateTo='+to,{headers:{'X-Auth-Token':token}});if(!res.ok)throw new Error('API respondeu '+res.status+'. Verifique sua chave e o limite do plano.');const data=await res.json();const incoming=(data.matches||[]).map(fromApi);const keep=state.matches.filter(m=>!incoming.some(n=>n.id===m.id));state.matches=[...keep,...incoming].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));populate();$('apiStatus').textContent=incoming.length+' partida(s) recebida(s). Os canais precisam ser confirmados e cadastrados separadamente.';}catch(e){$('apiStatus').textContent='Não foi possível carregar: '+e.message+' (confira conexão, chave e permissões da API).';}}
+$('settingsBtn').onclick=()=>{$('apiToken').value=localStorage.getItem('op_api_token')||'';$('settings').showModal();};
+$('closeSettings').onclick=()=>$('settings').close();
+$('saveToken').onclick=()=>{localStorage.setItem('op_api_token',$('apiToken').value.trim());$('apiStatus').textContent='Chave salva neste navegador.';};
+$('loadApi').onclick=loadApi;
+$('broadcastForm').onsubmit=e=>{e.preventDefault();const id=$('matchSelect').value;if(!id)return;$('broadcastUrl').value.trim();const url=$('broadcastUrl').value.trim();if(!/^https:\/\//i.test(url)){ $('saveStatus').textContent='Informe um link HTTPS oficial.';return;}state.broadcasts[id]={channel:$('channel').value.trim(),access:$('access').value,url,source:$('sourceNote').value.trim()};persist();render();$('saveStatus').textContent='Transmissão salva neste navegador.';};
+$('exportData').onclick=()=>{const blob=new Blob([JSON.stringify({matches:state.matches,broadcasts:state.broadcasts},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='onde-passa-dados.json';a.click();URL.revokeObjectURL(a.href);};
+$('clearData').onclick=()=>{if(confirm('Apagar chave da API e transmissões salvas neste navegador?')){localStorage.removeItem('op_api_token');localStorage.removeItem('op_broadcasts');state.broadcasts={};$('apiToken').value='';render();$('apiStatus').textContent='Dados locais apagados.';}};
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));b.classList.add('active');state.range=b.dataset.range;if(state.range==='today')$('dateFilter').value=todayISO();if(state.range==='tomorrow')$('dateFilter').value=plusDays(1);render();});
+['dateFilter','search','competition'].forEach(id=>$(id).addEventListener('input',()=>{if(id==='dateFilter')state.range='all';render();}));
+populate();
+</script></body></html>
